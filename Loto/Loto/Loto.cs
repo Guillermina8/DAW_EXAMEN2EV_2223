@@ -20,31 +20,15 @@ namespace LotoClassNS
             set => _numeros = value;
         }
 
-        
         /// <summary>
         /// Constructor vacío que genera una combinación aleatoria correcta
         /// </summary>
         public LotoGP2223()
         {
-            Random numerosAleatorios = new Random();    // clase generadora de números aleatorios
-
-            int i = 0, j, num;
-
-            do             // generamos la combinación
-            {
-                num = numerosAleatorios.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);     // generamos un número aleatorio del 1 al 49
-                for(j = 0; j < i; j++)    // comprobamos que el número no está
-                    if(Numeros[j] == num)
-                        break;
-                if(i == j)               // Si i==j, el número no se ha encontrado en la lista, lo añadimos
-                {
-                    Numeros[i] = num;
-                    i++;
-                }
-            } while(i < MAXIMO_NUMEROS);
-
-            ok = true;
+            GenerarNumerosAleatorios();
         }
+
+        
 
         // La segunda forma de crear una combinación es pasando el conjunto de números
         // misNumeros es un array de enteros con la combinación que quiero crear 
@@ -87,12 +71,38 @@ namespace LotoClassNS
         /// <returns>devuelve el número de aciertos</returns>
         public int Comprobar(int[] premio)
         {
-            int a = 0;                    // número de aciertos
+            int numeroAciertos = 0;  
+            
             for(int i = 0; i < MAXIMO_NUMEROS; i++)
+
                 for(int j = 0; j < MAXIMO_NUMEROS; j++)
+
                     if(premio[i] == Numeros[j])
-                        a++;
-            return a;
+
+                        numeroAciertos++;
+
+            return numeroAciertos;
+        }
+        private void GenerarNumerosAleatorios()
+        {
+            Random numerosAleatorios = new Random();    // clase generadora de números aleatorios
+
+            int i = 0, j, numeros;
+
+            do             // generamos la combinación
+            {
+                numeros = numerosAleatorios.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);     // generamos un número aleatorio del 1 al 49
+                for(j = 0; j < i; j++)    // comprobamos que el número no está
+                    if(Numeros[j] == numeros)
+                        break;
+                if(i == j)               // Si i==j, el número no se ha encontrado en la lista, lo añadimos
+                {
+                    Numeros[i] = numeros;
+                    i++;
+                }
+            } while(i < MAXIMO_NUMEROS);
+
+            ok = true;
         }
     }
 
