@@ -1,6 +1,6 @@
 ﻿namespace ExamenLoto
 {
-    partial class Form1
+    partial class Examen2EVGP2223
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -202,7 +202,7 @@
             this.txtGanadora1.Size = new System.Drawing.Size(44, 44);
             this.txtGanadora1.TabIndex = 10;
             // 
-            // Form1
+            // Examen2EVGP2223
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -224,8 +224,8 @@
             this.Controls.Add(this.txtNumero3);
             this.Controls.Add(this.txtNumero2);
             this.Controls.Add(this.txtNumero1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Examen2EVGP2223";
+            this.Text = "Examen2EVGP2223";
             this.ResumeLayout(false);
             this.PerformLayout();
 
